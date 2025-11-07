@@ -1,0 +1,73 @@
+{
+    "name": "@genit-io/chat-react",
+    "version": "1.0.0",
+    "description": "A comprehensive React package for chat functionality with real-time support",
+    "main": "dist/index.js",
+    "module": "dist/index.esm.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "build": "rollup -c",
+        "dev": "rollup -c -w",
+        "test": "jest",
+        "lint": "eslint src --ext .ts,.tsx",
+        "format": "prettier --write \"src/**/*.{ts,tsx}\"",
+        "prepublishOnly": "npm run build"
+    },
+    "keywords": [
+        "react",
+        "chat",
+        "messaging",
+        "real-time",
+        "supabase",
+        "hooks"
+    ],
+    "author": "Genit.io",
+    "license": "MIT",
+    "peerDependencies": {
+        "react": "^18.0.0",
+        "react-dom": "^18.0.0"
+    },
+    "dependencies": {
+        "@radix-ui/react-dialog": "^1.1.15",
+        "@radix-ui/react-dropdown-menu": "^2.1.16",
+        "@radix-ui/react-slot": "^1.2.3",
+        "@supabase/supabase-js": "^2.38.0",
+        "axios": "^1.6.0",
+        "class-variance-authority": "^0.7.1",
+        "clsx": "^2.1.1",
+        "date-fns": "^2.30.0",
+        "lucide-react": "^0.546.0",
+        "tailwind-merge": "^3.3.1",
+        "tailwindcss-animate": "^1.0.7"
+    },
+    "devDependencies": {
+        "@rollup/plugin-commonjs": "^25.0.7",
+        "@rollup/plugin-json": "^6.1.0",
+        "@rollup/plugin-node-resolve": "^15.2.3",
+        "@rollup/plugin-typescript": "^11.1.5",
+        "@rollup/plugin-url": "^8.0.2",
+        "@svgr/rollup": "^8.1.0",
+        "@tailwindcss/postcss": "^4.1.14",
+        "@types/react": "^18.2.0",
+        "@types/react-dom": "^18.2.0",
+        "@typescript-eslint/eslint-plugin": "^6.0.0",
+        "@typescript-eslint/parser": "^6.0.0",
+        "autoprefixer": "^10.4.21",
+        "eslint": "^8.0.0",
+        "eslint-config-prettier": "^9.0.0",
+        "eslint-plugin-react": "^7.33.0",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "postcss": "^8.5.6",
+        "prettier": "^3.0.0",
+        "rollup": "^4.0.0",
+        "rollup-plugin-dts": "^6.1.0",
+        "rollup-plugin-peer-deps-external": "^2.2.4",
+        "rollup-plugin-postcss": "^4.0.2",
+        "tailwindcss": "^4.1.14",
+        "tslib": "^2.8.1",
+        "typescript": "^5.0.0"
+    }
+}

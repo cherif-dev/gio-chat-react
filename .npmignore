@@ -1,0 +1,34 @@
+# Source files
+src/
+*.ts
+*.tsx
+!*.d.ts
+
+# Tests
+**/*.test.ts
+**/*.test.tsx
+**/*.spec.ts
+**/*.spec.tsx
+
+# Config files
+tsconfig.json
+rollup.config.js
+.eslintrc.json
+.prettierrc
+
+# IDE
+.vscode/
+.idea/
+
+# Git
+.git/
+.gitignore
+
+# CI/CD
+.github/
+
+# Misc
+*.log
+node_modules/
+.DS_Store
+

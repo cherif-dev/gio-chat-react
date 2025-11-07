@@ -1,0 +1,21 @@
+# Chat Library Configuration
+# Copy this file to .env and fill in your actual values
+
+# API Configuration
+REACT_APP_API_BASE_URL=https://your-api.com
+REACT_APP_API_KEY=your-api-key
+REACT_APP_PROJECT_SLUG=your-project-slug
+REACT_APP_API_TIMEOUT=30000
+
+# Supabase Configuration
+REACT_APP_SUPABASE_URL=https://your-project.supabase.co
+REACT_APP_SUPABASE_ANON_KEY=your-supabase-anon-key
+REACT_APP_SUPABASE_SCHEMA=public
+
+# Optional: Development fallbacks (used by createConfigWithFallbacks)
+# These are only used if the above variables are not set
+# REACT_APP_DEV_API_BASE_URL=http://localhost:3000
+# REACT_APP_DEV_API_KEY=dev-api-key
+# REACT_APP_DEV_PROJECT_SLUG=dev-project
+# REACT_APP_DEV_SUPABASE_URL=http://localhost:54321
+# REACT_APP_DEV_SUPABASE_ANON_KEY=dev-anon-key
