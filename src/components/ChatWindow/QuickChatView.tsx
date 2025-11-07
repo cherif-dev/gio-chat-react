@@ -20,15 +20,12 @@ import {
 } from '../ui/sheet';
 import { useConversation } from '../../hooks';
 import { Loader2, MessageCircleIcon } from 'lucide-react';
-import { ProjectConfig } from '../../types';
 import { CustomAttachmentButton, MessageInput } from '../Message/MessageInput';
 import { MessageList } from '../Message/MessageList';
 import { ChatHeader } from './ChatHeader';
 import { useChatContext, useProjectConfig } from '../../context';
 
 interface QuickChatViewProps {
-  /** The configuration for the chat service */
-  config: ProjectConfig;
   /** The current user's contact UUID */
   contact_uuid: string;
   /** The participant's contact UUID */
