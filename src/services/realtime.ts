@@ -66,7 +66,6 @@ export class RealtimeService {
 
     const channelName = `conversation.${conversationId}.messages`;
     const listenerKey = `${channelName}.${name}`;
-    debugger;
 
     // Initialize listeners set for this channel if it doesn't exist
     if (!this.messageListeners.has(listenerKey)) {
