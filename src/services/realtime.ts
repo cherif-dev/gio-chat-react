@@ -6,6 +6,7 @@ import {
   Contact,
   Conversation,
   TypingEvent,
+  AssetsConfig,
 } from '../types';
 import { getConfigService } from './config';
 
@@ -16,7 +17,7 @@ export class RealtimeService {
   private client: SupabaseClient<any, any, any> | null = null;
   private channels: Map<string, RealtimeChannel> = new Map();
   private messageListeners: Map<string, Set<(event: RealtimeEvent<Message>) => void>> = new Map();
-
+  private assetsConfig: AssetsConfig | null = null;
   /**
    * Initialize the real-time service
    */
@@ -27,7 +28,7 @@ export class RealtimeService {
         return;
       }
       const supabaseConfig = configService.getSupabaseConfig();
-
+      this.assetsConfig = configService.getAssetsConfig();
       this.client = createClient(supabaseConfig.url, supabaseConfig.anon_key, {
         db: { schema: supabaseConfig.schema },
         ...supabaseConfig.options,
@@ -77,7 +78,6 @@ export class RealtimeService {
     if (listeners.size === 0) {
       listeners.add(onMessage);
     }
-
     // If channel doesn't exist, create it
     if (!this.channels.has(channelName)) {
       this.client!.from('messages')
@@ -94,14 +94,14 @@ export class RealtimeService {
             filter: `conversation_id=eq.${conversationId}`,
           },
           payload => {
-            console.log('message-created', payload);
             const event: RealtimeEvent<Message> = {
               type: 'message:created',
               payload: payload.new as Message,
               timestamp: new Date().toISOString(),
             };
+            this.playNotificationSound();
             // Call all listeners for this channel
-            this.messageListeners.forEach(listeners => listeners.forEach(l => l(event)));
+            this.messageListeners.get(listenerKey)?.forEach(listener => listener(event));
           }
         )
         .on(
@@ -113,13 +113,11 @@ export class RealtimeService {
             filter: `conversation_id=eq.${conversationId}`,
           },
           payload => {
-            console.log('message-updated', payload);
             const event: RealtimeEvent<Message> = {
               type: 'message:updated',
               payload: payload.new as Message,
               timestamp: new Date().toISOString(),
             };
-
             // Call all listeners for this channel
             this.messageListeners.get(listenerKey)?.forEach(listener => listener(event));
           }
@@ -166,6 +164,18 @@ export class RealtimeService {
       },
       isSubscribed: true,
     };
+  }
+
+  private playNotificationSound(): void {
+    if (!this.assetsConfig?.notification_sound) {
+      return;
+    }
+    try {
+      const audio = new Audio(`${this.assetsConfig?.notification_sound}`);
+      void audio.play();
+    } catch (error) {
+      console.error('Unable to play notification sound:', error);
+    }
   }
 
   /**

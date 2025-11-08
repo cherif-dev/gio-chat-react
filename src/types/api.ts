@@ -71,12 +71,17 @@ export interface SupabaseConfig {
   };
 }
 
+export interface AssetsConfig {
+  notification_sound: string;
+}
+
 /**
  * Global configuration interface
  */
 export interface GlobalConfig {
   api: ApiConfig;
   supabase: SupabaseConfig;
+  assets: AssetsConfig;
 }
 
 /**

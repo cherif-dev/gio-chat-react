@@ -1,6 +1,6 @@
 {
     "name": "@genit-io/chat-react",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "description": "A comprehensive React package for chat functionality with real-time support",
     "main": "dist/index.js",
     "module": "dist/index.esm.js",
@@ -17,7 +17,7 @@
         "test": "jest",
         "lint": "eslint src --ext .ts,.tsx",
         "format": "prettier --write \"src/**/*.{ts,tsx}\"",
-        "prepublishOnly": "npm run build"
+        "ppo": "npm run build"
     },
     "keywords": [
         "react",

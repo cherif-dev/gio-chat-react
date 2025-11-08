@@ -1,4 +1,4 @@
-import { GlobalConfig, ApiConfig, SupabaseConfig, ProjectConfig } from '../types';
+import { GlobalConfig, ApiConfig, SupabaseConfig, ProjectConfig, AssetsConfig } from '../types';
 
 /**
  * Configuration validation error
@@ -76,6 +76,14 @@ class ConfigService {
    */
   getSupabaseConfig(): SupabaseConfig {
     return this.getConfig().supabase;
+  }
+
+  /**
+   * Get assets configuration
+   * @returns Assets configuration
+   */
+  getAssetsConfig(): AssetsConfig {
+    return this.getConfig().assets;
   }
 
   /**
