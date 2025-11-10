@@ -142,7 +142,7 @@ export const MessageInput: React.FC<MessageInputProps> = ({
 
     if (!trimmedMessage || sending || disabled) return;
     const messageData: CreateMessageRequest = {
-      sender_id: senderId!,
+      sender_uuid: sender!.uuid!,
       content: trimmedMessage,
       type: 'text',
       from_me: true,
@@ -305,7 +305,7 @@ export const MessageInput: React.FC<MessageInputProps> = ({
 
         // Create a location message
         const locationMessage: CreateMessageRequest = {
-          sender_id: senderId!,
+          sender_uuid: sender!.uuid!,
           content: `📍 My current location: ${latitude.toFixed(6)}, ${longitude.toFixed(6)}`,
           type: 'location',
           from_me: true,
@@ -449,7 +449,7 @@ export const MessageInput: React.FC<MessageInputProps> = ({
                         const messageData = button.handler();
                         if (messageData) {
                           const message: CreateMessageRequest = {
-                            sender_id: senderId!,
+                            sender_uuid: sender!.uuid!,
                             ...messageData,
                             sender: sender!,
                           };

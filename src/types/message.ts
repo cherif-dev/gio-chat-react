@@ -58,7 +58,7 @@ export interface Message {
  * Create message request
  */
 export interface CreateMessageRequest {
-  sender_id: number;
+  sender_uuid: string;
   sender: Contact;
   content?: string;
   body?: string;

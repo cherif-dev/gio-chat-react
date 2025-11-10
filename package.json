@@ -1,6 +1,6 @@
 {
     "name": "@genit-io/chat-react",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "A comprehensive React package for chat functionality with real-time support",
     "main": "dist/index.js",
     "module": "dist/index.esm.js",
